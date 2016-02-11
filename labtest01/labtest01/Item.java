@@ -5,7 +5,7 @@ package labtest01;
  * Jar of peanut butter, package of pasta,
  * whatever.
  */
-public class Item
+public class Item implements Comparable<Item>
 {
 	private final String aName;
 	private final int aId;
@@ -46,5 +46,11 @@ public class Item
 	public int getPrice()
 	{
 		return aPrice;
+	}
+
+	@Override
+	public int compareTo(Item o)
+	{
+		return aPrice - o.aPrice;
 	}
 }

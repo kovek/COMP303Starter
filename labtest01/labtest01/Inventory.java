@@ -1,6 +1,7 @@
 package labtest01;
 
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 /**
  * Represents the inventory of a 
@@ -55,6 +56,8 @@ public class Inventory
 	 */
 	public void dispose(Item pItem, int pQuantity)
 	{
+		assert aInventory.containsKey(pItem) && pQuantity >= aInventory.get(pItem);
+		
 		int amount = aInventory.get(pItem);
 		amount -= pQuantity;
 		aInventory.put(pItem, amount);
@@ -74,5 +77,15 @@ public class Inventory
 		{
 			return 0;
 		}
+	}
+	
+	public int totalValue()
+	{
+		int count = 0;
+		for (Entry<Item, Integer> item : aInventory.entrySet()) {
+			//count += 1;
+			//count += 
+		}
+		return count;
 	}
 }

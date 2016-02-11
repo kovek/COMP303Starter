@@ -1,5 +1,7 @@
 package labtest01;
 
+import java.util.ArrayList;
+
 /**
  * Utility class with a driver program and some 
  * sample items and inventories.
@@ -19,9 +21,19 @@ public final class Driver
 	 */
 	public static void main(String[] pArgs)
 	{
+
+		ArrayList<Item> seenItems = new ArrayList<Item>();
+		
 		for( Item item : ITEMS )
 		{
-			System.out.println(item.getName());
+			for(Item someSeenItem : seenItems)
+			{
+				assert someSeenItem.getPrice() < item.getPrice();
+			}
+			
+			System.out.println(item.getName() + " - totalvalue: " + item.getPrice());
+			
+			seenItems.add(item);
 		}
 	}
 }
